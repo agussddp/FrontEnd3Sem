@@ -1,0 +1,36 @@
+/* Reset CSS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+    Box Model
+        margin
+        padding
+        border
+        content
+
+
+
+    box-sizing
+*/
+
+.caixa {
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 200px;
+    margin-bottom: 12px;
+    border: 2px solid slateblue;
+}
