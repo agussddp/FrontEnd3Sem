@@ -61,20 +61,20 @@
 
             <div class="contact-form__col-b">
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="+55" 
-                    id="+55" 
+                    name="DDI" 
+                    id="DDI" 
                     placeholder="+55" 
                     type="text">
 
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="ddd" 
-                    id="ddd" 
-                    placeholder="ddd" 
+                    name="DDD" 
+                    id="DDD" 
+                    placeholder="DDD" 
                     type="text">
 
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="ex: 88888888" 
-                    id="ex: 88888888" 
+                    name="TelefoneN" 
+                    id="TelefoneN" 
                     placeholder="ex: 88888888" 
                     type="text">
             </div>
@@ -87,20 +87,21 @@
 
             <div class="contact-form__col-b">
                 <input class="contact-form__input contact-form__input--quarto" 
-                    name="cep" 
-                    id="cep" 
-                    placeholder="cep: 88888-8888" 
-                    type="text">
+                    name="Cep" 
+                    id="Cep" 
+                    placeholder="Cep: 88888-8888" 
+                    type="number"
+                    onblur="buscarEndereco(this.value)">
 
                 <input class="contact-form__input contact-form__input--metade" 
-                    name="rua" 
-                    id="rua" 
+                    name="Rua" 
+                    id="Rua" 
                     placeholder="Rua da sua casa" 
                     type="text">
 
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="numero" 
-                    id="numero" 
+                    name="Numero" 
+                    id="Numero" 
                     placeholder="ex:707" 
                     type="text">
                 </div>
@@ -114,13 +115,13 @@
 
             <div class="contact-form__col-b">
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="apt" 
-                    id="apt" 
-                    placeholder="apt: bloco 21" 
+                    name="Apt" 
+                    id="Apt" 
+                    placeholder="Apt: bloco 21" 
                     type="text">
                 <input class="contact-form__input contact-form__input--terco" 
-                    name="bairro" 
-                    id="bairro" 
+                    name="Bairro" 
+                    id="Bairro" 
                     placeholder="Bairro" 
                     type="text">
 
@@ -170,7 +171,7 @@
             name="cadastrar" 
             id="cadastrar" 
             class="contact-form__button  contact-form__input--metade"
-            onclick="minhaFuncao();">cadastrar</button>
+            onclick="validarFormulario();">cadastrar</button>
 
             <input type="reset" 
             name="reset" 
@@ -185,66 +186,6 @@
         </div>
     </main>
 
-        <script>
-
-            function minhaFuncao() {
-                let nome = document.getElementById("Nome").value.trim();//pega o valor do campo com id nome
-                let sobrenome = document.getElementById("Sobrenome").value.trim();//pega o valor do campo com id sobrenome
-                let email = document.getElementById("Email").value.trim();//pega o valor do campo com id email
-                let message = document.getElementById("Message").value.trim();//pega o valor do campo com id Message
-
-
-                
-
-                if(nome.length == 0){
-                    formError("Nome");
-                }
-                else {
-                    reiniciaBorda("Nome");
-                }
-
-                if(sobrenome.length == 0){
-                    formError("Sobrenome");
-                }
-                else {
-                    reiniciaBorda("Sobrenome");
-                }
-
-                if(email.length == 0){
-                    formError("Email");
-                }
-                else {
-                    reiniciaBorda("Email");
-                }
-
-                if(message.length == 0){
-                    formError("Message");
-                }
-                else {
-                    reiniciaBorda("Message");
-                }
-
-
-                //funcao que pinta a borda do campo que falta preencher
-                function formError(fildId){
-                    document.getElementById(fildId).style.border = "1px solid red"; 
-                }
-
-                //funcao que nao pinta a borda do campo que é preenchida
-                function reiniciaBorda(fildId){
-                    document.getElementById(fildId).style.border = "none"; 
-                }
-
-                // literal template: é a crase ``
-                // console.log(`
-                // Aluno: ${nome} ${sobrenome} |
-                // E-mail: ${email}`);
-
-                
-                // alert(`Nome: ${nome} ${sobrenome} | Email: ${email} |`);
-
-                // alert("Ola eu fui clicado, top top!");
-            }
-        </script>
+        <script src="js/script.js"> </script>
     </body>
     </html>

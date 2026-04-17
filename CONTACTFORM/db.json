@@ -1,0 +1,82 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contatos": [
+    {
+      "nome": "Giukia",
+      "sobrenome": "Martiniano",
+      "email": "giukia.martiniano@example.com",
+      "id": "CSLOmAgNkqs"
+    },
+    {
+      "nome": "Beatriz",
+      "sobrenome": "Andrade",
+      "email": "Beatriz.Andrade@example.com",
+      "id": "l-JL584cD4Y"
+    },
+    {
+      "nome": "Mayra",
+      "sobrenome": "Aparecida",
+      "email": "Mayra.Aparecida@example.com",
+      "id": "WDasjB4cVR8"
+    },
+    {
+      "nome": "Manon",
+      "sobrenome": "Katseye",
+      "email": "Manon.Katseye@example.com",
+      "id": "fVPNLtsyMTk"
+    },
+    {
+      "nome": "Lara",
+      "sobrenome": "Katseye2",
+      "email": "Lara.Katseye2@example.com",
+      "id": "nyTi6yd8Ly8"
+    },
+    {
+      "nome": "Megan",
+      "sobrenome": "Katseye4",
+      "email": "Megan.Katseye4@example.com",
+      "id": "PDzFa1DtpSI"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Gameboy",
+      "preço": "15,99",
+      "quantidade": "5",
+      "id": "489yZV_FMXs"
+    },
+    {
+      "nome": "Nintendo",
+      "preço": "1.360 ",
+      "quantidade": "5",
+      "id": "QDcNhv7m0-w"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
