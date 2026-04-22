@@ -1,0 +1,10 @@
+{
+  "usuarios": [
+    {
+      "nome": "Manon Bannerman",
+      "idade": 17,
+      "id": "0gVrViN8YMA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

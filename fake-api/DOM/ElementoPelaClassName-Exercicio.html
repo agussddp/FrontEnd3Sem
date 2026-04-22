@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .corsim{
+            color:aqua;
+        }
+        .cornao{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="fruta" placeholder="digite o nome da fruta">
+
+    <select name="" id="nomeClasse">
+        <option value="">Selecione</option>
+        <option value="corsim" class="corsim">CorSim</option>
+        <option value="corsim" class="cornao">CorNao</option>
+    </select>
+
+    <button onclick="cadastrarFruta();">cadastrar</button>
+    
+    <h1>Frutas</h1>
+
+    <ul id="listarFrutas">
+        <li class="corsim">Amora</li>
+    </ul>
+
+    <script>
+        function cadastrarFruta(){
+            
+            const fruta = document.getElementById("fruta").value;
+            const nomeClasse = document.getElementById("nomeClasse").value;
+            const listaFrutas = document.getElementById("listarFrutas");
+
+            //validação se preencheu todos os campos
+            if(fruta.trim().length == 0 || nomeClasse.length == 0){
+                alert("Preencha todos os campos:fruta e nome da classe");
+                return false;
+            }
+
+            //cadastra um item de fruta no final da lista
+            // mantendo os itens anteriosres
+            listaFrutas.innerHTML += `<li class="${nomeClasse}">${fruta}</li>`;  //+=, mantenha oq ja tem e add mais um      
+        }
+
+    </script>
+</body>
+</html>
