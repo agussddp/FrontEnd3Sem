@@ -6,25 +6,39 @@ function calcular(){
     const altura = parseFloat(document.getElementById("altura").value);
     const peso = parseFloat(document.getElementById("peso").value);
 
-    console.log(altura)
-    console.log(peso)
-
     // validar se esta tudo preenchido
     if (nome.trim().length == 0 || isNaN(altura) || isNaN(peso)){
         alert("Preencha todos os campos: Nome, Altura e Peso");
         return false;
     }
 
-    const IMC = calcularIMC(altura,peso);
-    const textoSituacao = gerarTextoImc(IMC);
+    const IMC = calcularIMC(altura,peso); //criando a constante imc
+    const textoSituacao = gerarTextoImc(IMC); //chama a função que gera o texto do IMC, 
+                         
+    // que chama o imc da constante de cima
 
     console.log(nome);
     console.log(altura);
     console.log(peso);
     console.log(IMC);
     console.log(textoSituacao);
+
+
+    //cadastrar a uma linha de tabelo no html
+    
+    const tabela = document.getElementById("cadastro");
+
+    tabela.innerHTML += //(innerHTML) acessa o html interno do id
+            `<tr>
+                <td>${nome}</td>
+                <td>${altura}</td>
+                <td>${peso}</td>
+                <td>${IMC}</td>
+                <td>${textoSituacao}</td> 
+            </tr>`;
 }
 
+    
 
 
 
