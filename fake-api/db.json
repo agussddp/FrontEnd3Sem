@@ -6,5 +6,199 @@
       "id": "0gVrViN8YMA"
     }
   ],
+  "imc": [
+    {
+      "nome": "giulia",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "8PpmuwlEj9I"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "D0lvC39SIc0"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "RqPniavrxJs"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "pq6DqOBMfaA"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "hbZqvtot6Ow"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "Axybjq27Slo"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "Zv98RXaNwIw"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "yDU1yD75evw"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "3d5mOimTQPs"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "R1ehNHeVLpA"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "vlFJvXrBXX8"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "BEeG6fqROtQ"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "rRxJwT6XkO0"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "jL3l1-3TZ4k"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "oruNRkVHsS8"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "dlgB9tbDjTs"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "FT_6DMGMJaI"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "WdVXM3uoA9c"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "Y3GVNtyNMd4"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "FxrdvdWnKrk"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.57,
+      "peso": 57,
+      "IMC": 23.124670372023203,
+      "textoSituacao": "Saudável",
+      "id": "V7IhiTFY2Ok"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "situacao": "Obesidade Grau I",
+      "id": "AaKbuRRCpXA"
+    },
+    {
+      "nome": "Eduardos",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "situacao": "Obesidade Grau I",
+      "id": "BqbLvVD5fPc"
+    },
+    {
+      "nome": "giulia",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "situacao": "Obesidade Grau I",
+      "id": "hVrNrFqEhO0"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
