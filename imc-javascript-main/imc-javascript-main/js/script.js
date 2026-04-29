@@ -1,143 +1,153 @@
-function calcular(){
+function calcular() {
     const nome = document.getElementById("nome").value;
     const altura = parseFloat(document.getElementById("altura").value);
-    const peso = parseFloat (document.getElementById("peso").value);
-   
+    const peso = parseFloat(document.getElementById("peso").value);
 
 
-    if(nome.trim().length == 0 || isNaN(altura) || isNaN(peso)){
-        alert("preencha todos os campos Nome, Altura, Peso");
-        return false
+
+
+    if (nome.trim().length == 0 || isNaN(altura) || isNaN(peso)) {
+        alert("Preencha todos os campos!");
+        return false;
     }
 
-    const IMC = calcularImc(altura, peso);
-    const textoSituacao = gerarTextoIMC(IMC);
+    const imc = CalcularImc(altura, peso);
+    const textoResultado = exibirResultadoImc(imc);
 
-
- 
-   
-const objIMC = {
-    nome : nome,
-    altura : altura,
-    peso : peso,
-    IMC : IMC,
-    situacao : textoSituacao
-};
+    console.log(nome);
+    console.log(altura);
+    console.log(peso);
+    console.log(imc);
+    console.log(textoResultado);
 
 
 
+    const objImc = {
+        nome: nome,
+        altura: altura,
+        peso: peso,
+        imc: imc,
+        resultado: textoResultado
+    }
+
+    const retorno = cadastrarContato(objImc);
 
 
-             
-const retorno = cadastrarNaAPI(objIMC);
+    if (retorno) {
 
-if(retorno){
-     const tabela = document.getElementById("cadastro");
+        const linhaTabela = `<tr>
+        <td>${nome}</td>
+        <td>${altura}</td>
+        <td>${peso}</td>
+        <td>${imc.toFixed(2)}</td>
+        <td>${textoResultado}</td>
+    </tr>`;
 
-    tabela.innerHTML += `<td>${nome}</td>
-     <td>${altura}</td>
-     <td>${peso}</td>
-     <td>${IMC.toFixed(2)}</td>
-     <td>${textoSituacao}</td>`;
-
-    document.getElementById("nome").value = "";
-    document.getElementById("altura").value = "";
-    document.getElementById("peso").value = "";
-
-    alert(`${nome} foi cadastrado no banco:
-            Nome: ${nome}
-            IMC: ${IMC}
-            Situação: ${situacao}`
+        // limpar os campos do formulário
+        document.getElementById("nome").value = "";
+        document.getElementById("altura").value = "";
+        document.getElementById("peso").value = "";
+        alert(
+            `${nome}, foi cadastrado no banco:
+        Nome: ${nome}
+        Imc: ${imc.toFixed(2)}
+        Resultado: ${textoResultado}`
         );
-
-
-}else{
-    alert("não foi possivel cadastrar")
-}
-
-
-    function calcularImc(altura, peso){
-        return peso / (altura * altura);
+        document.getElementById("cadastro").innerHTML += linhaTabela;
+    } else {
+        alert("Erro ao cadastrar contato!");
     }
 
-    function gerarTextoIMC(IMC){
-        if(IMC < 16){
-            return "Magreza grave"
-        }
-        else if(IMC < 17){
-            return "Magreza moderada"
-        }
-        else if(IMC < 18.5){
-            return "Magreza leve"
-        }
-        else if(IMC < 25){
-            return "Saudável"
-        }
-        else if(IMC < 30){
-            return "Sobrepeso"
-        }
-        else if(IMC < 35){
-            return "Obesidade Grau I"
-        }
-        else if(IMC < 40){
-            return "Obesidade Grau II"
-        }
-        else{
-            return "Obesidade Grau III"
-        }
 
-      
-    }
-  
 }
 
 
-async function cadastrarNaAPI(objIMC) {
 
-  try {
-      let resposta = await fetch("http://localhost:3000/imc", {
-      method: "POST",
-      body: JSON.stringify(objIMC),
-      headers : {
-          "Content-Type" : "application/json; charset=UTF-8"
-      }
-       });
-       return true;
+async function cadastrarContato(objImc) {
+    console.log(objImc);
 
-  } catch (error) {
-
-    console.log(error);
-    return false;
-
-  }
-}
-
-
-async function buscarIMCs(){
     try {
-       const retorno = await fetch("http://localhost:3000/imc");
-       const dadosRetornados = await retorno.json();
+        const resposta = await fetch("http://localhost:3000/imc", {
+            method: "POST",
+            body: JSON.stringify(objImc),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+        });
 
-       console.log(dadosRetornados);
-
-       const tabela = document.getElementById("cadastro");
-
-
-       for (let i = 0; i < dadosRetornados.length; i++) {
-
-        tabela.innerHTML += 
-        `<tr>
-        <td>${dadosRetornados[i].nome}</td>
-        <td>${dadosRetornados[i].altura}</td>
-        <td>${dadosRetornados[i].peso}</td>
-        <td>${dadosRetornados[i].IMC.toFixed(2)}</td>
-        <td>${dadosRetornados[i].situacao}</td>
-        </tr>`;
-       }
-
-       
+        return true;
 
     } catch (error) {
         console.log(error);
+        return false;
+    }
+}
+
+
+function CalcularImc(altura, peso) {
+
+    return peso / (altura * altura);
+
+}
+
+function exibirResultadoImc(imc) {
+    if (imc < 16) {
+        return "magreza grave";
+    }
+    else if (imc < 17) {
+        return "magreza moderada";
+    }
+    if (imc < 18.5) {
+        return "magreza leve";
+    }
+    else if (imc < 25) {
+        return "saudável";
+    }
+    else if (imc < 30) {
+        return "sobrepeso";
+    }
+    else if (imc < 35) {
+        return "obesidade grau I";
+    }
+    else if (imc < 40) {
+        return "obesidade grau II";
+    }
+    else {
+        return "obesidade grau III";
+    }
+
+
+
+
+}
+
+
+
+
+async function buscarImcs() {
+    try {
+        const retorno = await fetch("http://localhost:3000/imc");
+        const dadosRetornados = await retorno.json();
+
+        console.log(dadosRetornados);
+        const tabela = document.getElementById("cadastro");
+        let templete = "";
+
+        for (let i = 0; i < dadosRetornados.length; i++) {
+            templete +=
+                `<tr>
+                <td>${dadosRetornados[i].nome}</td>
+                <td>${dadosRetornados[i].altura}</td>
+                <td>${dadosRetornados[i].peso}</td>
+                <td>${dadosRetornados[i].IMC.toFixed(2)}</td>
+                <td>${dadosRetornados[i].textoSituacao}</td>
+            </tr>`;
+
+        }
+
+        tabela.innerHTML = templete;
+    } catch (error) {
+        console.log(error);
+        
     }
 }

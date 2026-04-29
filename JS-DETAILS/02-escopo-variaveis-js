@@ -1,0 +1,19 @@
+let nome = "Giulia";
+
+
+let sobrenome = "Martiniano"
+{
+   let sobrenome = "Marzano"
+   console.log(`${nome} ${sobrenomenome}`)
+}
+
+console.log(`${nome} ${sobrenomenome}`)
+console.log();
+console.log();
+
+const nomes = ["Manon", "Giulia"]
+for (let i = 0; i < nomes.length; i++) {
+    console.log(`Nome ${i}: ${nomes[i]}`);   
+}
+
+console.log(i);

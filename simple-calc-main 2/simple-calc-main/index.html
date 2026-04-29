@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="buscarEquacao()">
     <div class="page">
 
         <form action="" class="calc">
@@ -25,21 +25,15 @@
                 <option value="divisao">Divisão</option>
             </select>
 
-            <button class="calc__button" onclick="calcular()">Calcular</button>
+            <button type="button" class="calc__button" onclick="calcular()">Calcular</button>
 
             <span class="calc__result" id="resultado">33.29</span>
         </form>
        
         <section class="data" id="cadastro">
-            
-        <article class="data__card-result">
-            <span><strong>Primeiro Número:</strong> 50</span>
-            <span><strong>Segundo Número:</strong> 50</span>
-            <span><strong>Operação:</strong> soma</span>
-            <span><strong>Resultado:</strong> 100</span>
-        </article>
-    
-    </section>
+      
+       
+         </section>
     </div>
 
     

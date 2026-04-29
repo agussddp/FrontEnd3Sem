@@ -198,6 +198,59 @@
       "IMC": 30.477966223242138,
       "situacao": "Obesidade Grau I",
       "id": "hVrNrFqEhO0"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "resultado": "obesidade grau I",
+      "id": "sh1Qlrgrwjc"
+    },
+    {
+      "nome": "Bia",
+      "altura": 1.67,
+      "peso": 85,
+      "imc": 30.477966223242138,
+      "resultado": "obesidade grau I",
+      "id": "hmBQcj-SNRQ"
+    }
+  ],
+  "calculadora": [
+    {
+      "n1": null,
+      "n2": null,
+      "op": "",
+      "resultado": "Operação Inválida",
+      "id": "j_tmO9B5c3w"
+    },
+    {
+      "n1": null,
+      "n2": null,
+      "op": "",
+      "resultado": "Operação Inválida",
+      "id": "T6au8xqLUoY"
+    },
+    {
+      "n1": null,
+      "n2": null,
+      "op": "",
+      "resultado": "Operação Inválida",
+      "id": "BKh7dc9xttM"
+    },
+    {
+      "n1": null,
+      "n2": null,
+      "op": "",
+      "resultado": "Operação Inválida",
+      "id": "iB2AHv5LqDQ"
+    },
+    {
+      "n1": 23456,
+      "n2": 2345,
+      "op": "subtracao",
+      "resultado": "21111.00",
+      "id": "DIeT8yN76CM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
