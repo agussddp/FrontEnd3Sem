@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; // Se eu não exporta-lo, não consigo importar

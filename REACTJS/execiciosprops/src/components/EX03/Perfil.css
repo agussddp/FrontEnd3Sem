@@ -1,0 +1,30 @@
+.cartao-perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 8px;               
+    width: 300px;
+    height: 140px;          
+    padding: 20px;
+    background-color: rgba(119, 131, 135, 0.85); 
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+.cartao-perfil:hover {
+    transform: translateY(-5px); 
+    background-color: rgba(119, 131, 135, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
+}
+
+.card-produto {
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff; 
+    margin-left: 15px;
+    margin-top: 10px;
+}

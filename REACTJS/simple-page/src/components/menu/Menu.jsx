@@ -1,6 +1,6 @@
+import CardPerfil from '../cardperfil/card-perfil';
 import './Menu.css'
 //Importa o caminho da imagem
-import MyPeople from "../../assets/imggato.jpg";
 
 function Menu() {
     return(
@@ -12,9 +12,7 @@ function Menu() {
             <a href="#" className="menu__item menu__item--signin">Entrar</a>
             <a href="#" className="menu__item menu__item--signup">Cadastrar</a>
 
-            <div class="card-perfil">
-                <img class="card-perfil__image" src={MyPeople} alt="imagem do usuario"/>
-            </div>
+            <CardPerfil />
         </nav>
     );
 }
