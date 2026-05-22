@@ -1,0 +1,45 @@
+{
+  "produtos": [
+    {
+      "id": "5",
+      "nome": "Notebook",
+      "preco": 5000,
+      "descricao": "Notebook Gamer.",
+      "quantidade": 10,
+      "imagem": ""
+    },
+    {
+      "id": "3",
+      "nome": "Notebook",
+      "preco": 5000,
+      "descricao": "Notebook Gamer.",
+      "quantidade": 10,
+      "imagem": ""
+    },
+    {
+      "nome": "Computador gamer",
+      "preco": 4637,
+      "descricao": "UIOI",
+      "quantidade": 1,
+      "imagem": "image.jpg",
+      "id": "8X7Z8JQhcHo"
+    },
+    {
+      "nome": "tgfdc",
+      "preco": 4,
+      "descricao": "xs",
+      "quantidade": 4,
+      "imagem": "image.jpg",
+      "id": "bo5WO40pgVU"
+    },
+    {
+      "nome": "css",
+      "preco": 34,
+      "descricao": "rdfz",
+      "quantidade": 34,
+      "imagem": "image.jpg",
+      "id": "TlqHQFZXIAU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
