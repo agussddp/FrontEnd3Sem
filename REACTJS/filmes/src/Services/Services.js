@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Define a porta onde a API local está rodando
 const apiPort = "3000";
-
+// http://localhost:3000/Genero
 // Monta a URL base para a API local, usando a porta definida
 const localApi = `http://localhost:${apiPort}`;
 

@@ -14,6 +14,7 @@ const CadastroGenero = () => {
     //armazena o valor digitado no campo de nome do gênero. Começa como string vazia.
     const [nomeGenero, setNomeGenero] = useState('');
     const [listaGeneros, setListaGeneros] = useState([]);
+    
 
     function alerta(icone, msg) {
         // alert
