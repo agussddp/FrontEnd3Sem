@@ -68,7 +68,7 @@ const CadastroFilme = () => {
     }
 
     const objCadastros = {
-      titulo: valor,
+      nome: valor,
       idGenero: Number(idGenero),
     };
 
@@ -98,7 +98,7 @@ const CadastroFilme = () => {
   // PUT 
   const preEditar = (item) => {
     setEditar(true);
-    setValor(item.titulo);
+    setValor(item.nome);
     setIdGenero(item.idGenero);
     setId(item.id);
   };
@@ -118,7 +118,7 @@ const CadastroFilme = () => {
     }
 
     const objEditar = {
-      titulo: valor,
+      nome: valor,
       idGenero: Number(idGenero),
     };
 
@@ -148,7 +148,7 @@ const CadastroFilme = () => {
   const excluirFilme = async (item) => {
     const result = await Alerta({
       title: "Cadastro de Filme",
-      text: `Quer apagar o filme ${item.titulo}?`,
+      text: `Quer apagar o filme ${item.nome}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -204,7 +204,7 @@ const CadastroFilme = () => {
       <main>
         <Cadastro
           //Define o título que será exibidgeneroo no formulário 
-          tituloCadastro="Cadastro de filme"
+          nomeCadastro="Cadastro de filme"
           // esconde o select de genero
           visibilidgeneroade="none" 
           // Define o texto que aparece dentro do campo de input 
@@ -222,7 +222,7 @@ const CadastroFilme = () => {
           listaGeneros={listaGeneros}
         />
         
-         <Lista tituloLista="Lista de Filmes"
+         <Lista nomeLista="Lista de Filmes"
          visibilidade="none" 
          //Chama o método para validar: 
          lista={listaFilmes} 
