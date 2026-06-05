@@ -6,6 +6,14 @@ const Perfil = () => {
     const {usuario, setUsuario} = useContext(UsuarioContext)
     //state local
     const [novoUsuario, setNovoUsuario] = useState("")
+
+    const login = (dadosUsuario) => {
+        setUsuario(novoUsuario);
+        localStorage.setItem("usuario", JSON.stringify(novoUsuario))//pegar o dado e colocar no storage
+        setNovoUsuario("")
+    }
+
+
     return(
         <>
             <h2>Página Perfil</h2>
@@ -19,10 +27,9 @@ const Perfil = () => {
                 }}
             />
             <button onClick={() => {
-                //quero alterar o usuario
-                setUsuario(novoUsuario);
-                setNovoUsuario("")
-            }}>Alterar Usuario </button>
+                login()
+                
+            }}>Entrar</button>
             </p>
         </>
     )
