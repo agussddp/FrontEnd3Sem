@@ -2,19 +2,23 @@ import "./Botao.css"
 
 const Botao = (props) => {
     return(
-
-        <button 
+        // Na função de login olá no Login.jsx
         
+        <button 
             className="botao" 
-            type={props.btnEditar ? "button" : "submit"}
-            onClick={() => {
-                if (props.btnEditar) {
+            type={
+                (props.btnEditar || props.btnLogin) ? "button" : "submit"
+            }
+
+            onClick={()=>{
+                if(props.btnEditar){//tela de editar
                     props.cancelarEdicao()
-                }else if (props.btnLogin) {
+                } else if (props.btnLogin) {//tela de login
                     props.fnLogin()
-                }else {
+                } else {//qualquer outra tela
                     null
                 }
+                
             }}
         >
             {props.nomeDoBotao}

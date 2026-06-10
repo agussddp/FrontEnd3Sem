@@ -3,28 +3,33 @@ import Footer from "../../components/footer/Footer";
 import "./CadastroFilme.css";
 import Cadastro from "../../components/cadastro/Cadastro";
 import { Alerta } from "../../components/alerta/Alerta";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lista from "../../components/lista/Lista";
-import api from "../../Services/services"; 
+import api from "../../services/Services";
 
 const CadastroFilme = () => {
-  // States e Variáveis 
-  const [valor, setValor] = useState(""); 
-  const [idGenero, setIdGenero] = useState(""); //Guarda o gênero selecionado no select
-  const [id, setId] = useState(0); // Guarda o id do filme na edição
+  // States e Variáveis
+  const [valor, setValor] = useState("");
   const [editar, setEditar] = useState(false);
-  const [listaFilmes, setListarFilmes] = useState([]);
+  const [listaFilmes, setListaFilmes] = useState([]);
+  const [valorGenero, setValorGenero] = useState("");
+  const [imagem, setImagem] = useState(null);
+  const [id, setId] = useState(0);
+
   const [listaGeneros, setListaGeneros] = useState([]);
 
-  // GET
+  // Get
+  // Busca os gêneros para colocar no select do formulário
+  // Get
   const getGeneros = async () => {
     try {
-      const retornoAPI = await api.get("/Genero");
-      setListaGeneros(retornoAPI.data);
+      const retornoAPI = await api.get("/Genero"); // chama a api
+      setListaGeneros(retornoAPI.data); // preencher o array listaGeneros
     } catch (error) {
+      alert("Problemas ao carregar os dados da API");
       Alerta({
-        title: "Cadastro de Filme",
-        text: "Problemas ao carregar os gêneros da API",
+        title: "Cadastro de Gênero",
+        text: "Problemas ao carregar os dados da API",
         icon: "error",
         confirmButtonText: "OK",
       });
@@ -35,120 +40,119 @@ const CadastroFilme = () => {
   const getFilmes = async () => {
     try {
       const retornoAPI = await api.get("/Filme");
-      setListarFilmes(retornoAPI.data);
+      console.log(retornoAPI.data);
+      setListaFilmes(retornoAPI.data);
     } catch (error) {
+      console.log(error);
+
       Alerta({
         title: "Cadastro de Filme",
-        text: "Problemas ao carregar os filmes da API",
+        text: "Erro ao listar os filmes",
         icon: "error",
-        confirmButtonText: "OK",
+        confirmButtonText: "Ok",
       });
-      console.log(error);
     }
   };
 
-  // Ciclo de vida 
-  useEffect(() => {
-    getFilmes();
-    getGeneros();
-  }, []);
-
-  // POST
+  // Post
   const cadastrarFilme = async (e) => {
     e.preventDefault();
-    
-    if (valor.trim().length === 0 || !idGenero) {
+    console.log(valorGenero.trim().length);
+    if (valor.trim().length == 0 || valorGenero.trim().length == 0) {
       Alerta({
         title: "Cadastro de Filme",
-        text: "Preencha o título e selecione um gênero!",
+        text: "Preencher os campos corretamente",
         icon: "warning",
         confirmButtonText: "Ok",
       });
       return false;
     }
 
-    const objCadastros = {
-      nome: valor,
-      idGenero: Number(idGenero),
-    };
+    const formData = new FormData();
+    formData.append("nome", valor);
+    formData.append("idGenero", valorGenero);
+    formData.append("imagem", imagem);
 
     try {
-      await api.post("/Filme", objCadastros);
-      
+      const retornoAPI = await api.post("/Filme", formData);
+      console.log(retornoAPI.data);
+
       Alerta({
         title: "Cadastro de Filme",
-        text: `${valor} cadastrado com sucesso`,
+        text: `${valor} foi Cadastrado`,
         icon: "success",
-        confirmButtonText: "Top!",
-      });
-
-      getFilmes(); 
-      limparFormulario();
-    } catch (error) {
-      Alerta({
-        title: "Cadastro de Filme",
-        text: "Erro ao cadastrar na API",
-        icon: "error",
-        confirmButtonText: "Ok!",
-      });
-      console.log(error);
-    }
-  };
-
-  // PUT 
-  const preEditar = (item) => {
-    setEditar(true);
-    setValor(item.nome);
-    setIdGenero(item.idGenero);
-    setId(item.id);
-  };
-
-  // PUT 
-  const editarFilme = async (e) => {
-    e.preventDefault();
-
-    if (valor.trim().length === 0 || !idGenero) {
-      Alerta({
-        title: "Cadastro de Filme",
-        text: "Preencha todos os campos!",
-        icon: "warning",
         confirmButtonText: "Ok",
       });
-      return false;
-    }
-
-    const objEditar = {
-      nome: valor,
-      idGenero: Number(idGenero),
-    };
-
-    try {
-      await api.put(`/Filme/${id}`, objEditar);
-      limparFormulario();
       getFilmes();
+      limparFormulario();
+    } catch (error) {
+      console.log(error);
 
       Alerta({
         title: "Cadastro de Filme",
-        text: "Filme atualizado com sucesso!",
+        text: "Erro ao Cadastrar",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+    }
+  };
+
+  // Put
+  const preEditar = (item) => {
+    // console.log(item);
+
+    setEditar(true);
+    setValor(item.titulo);
+    setId(item.idFilme);
+    setImagem(item.imagem);
+  };
+
+  const editarFilme = async (e) => {
+    e.preventDefaut();
+    
+    alert("Vamos cadastrar");
+    return false;
+
+    if (valor.trim().length == 0) {
+      alert("Preencher o filme");
+      return false;
+    }
+
+    const objEditar = new FormData();
+    objEditar.append("nome", valor);
+    objEditar.append("idGenero", valorGenero);
+    objEditar.append("imagem", imagem);
+
+    // cadastrar na api com o put
+    try {
+      const retornoAPI = await api.put(`/Filme/${id}`, objEditar);
+      limparFormulario();
+      getGeneros();
+      // alert("Gênero atualizado");
+      Alerta({
+        title: "Cadastro de Gênero",
+        text: "Gênero atualizado",
         icon: "success",
         confirmButtonText: "Ok",
       });
     } catch (error) {
+      // alert("Erro ao atualiar os dados na API");
       Alerta({
-        title: "Cadastro de Filme",
-        text: "Erro ao atualizar os dados na API",
+        title: "Cadastro de Gênero",
+        text: "Erro ao atualiar os dados na API",
         icon: "error",
         confirmButtonText: "Ok",
       });
+
       console.log(error);
     }
   };
 
-  // DELETE
+  // Delete
   const excluirFilme = async (item) => {
     const result = await Alerta({
       title: "Cadastro de Filme",
-      text: `Quer apagar o filme ${item.nome}?`,
+      text: `Quer apagar o filme ${item.titulo}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -158,85 +162,94 @@ const CadastroFilme = () => {
     });
 
     if (!result.isConfirmed) {
+      //se não quer apagar para por aqui
       return false;
     }
 
+    console.log(item);
     try {
-      const retornoAPI = await api.delete(`/Filme/${item.id}`);
-      if (retornoAPI.status === 200 || retornoAPI.status === 204) {
-        Alerta({
-          title: "Cadastro de Filme",
-          text: "Apagado com sucesso",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        getFilmes();
-      } else {
-        Alerta({
-          title: "Cadastro de Filme",
-          text: "Problemas ao apagar o filme",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
-      }
-    } catch (error) {
+      const retornoAPI = await api.delete(`/Filme/${item.idFilme}`);
+      console.log(retornoAPI);
+      getFilmes();
       Alerta({
         title: "Cadastro de Filme",
-        text: "Problemas ao conectar com a API",
-        icon: "error",
+        text: `O filme ${item.titulo} foi excluído`,
+        icon: "success",
         confirmButtonText: "Ok",
       });
+    } catch (error) {
       console.log(error);
+
+      Alerta({
+        title: "Cadastro de Filme",
+        text: `Erro ao apagar o filme na API`,
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
     }
   };
 
   // Funções auxiliares
+
   const limparFormulario = () => {
-    setValor("");
-    setIdGenero("");
     setEditar(false);
-    setId(0);
+    setImagem(null);
+    setValor("");
+    setValorGenero("");
   };
 
+  // Ciclo de Vida do componente
+  useEffect(() => {
+    getGeneros();
+    getFilmes();
+  }, []);
   return (
     <>
       <Header />
+
       <main>
         <Cadastro
-          //Define o título que será exibidgeneroo no formulário 
-          nomeCadastro="Cadastro de filme"
+          //Define o título que será exibido no formulário
+          tituloCadastro="Cadastrar um Filme"
           // esconde o select de genero
-          visibilidgeneroade="none" 
-          // Define o texto que aparece dentro do campo de input 
+          // visibilidade="none"
+          // Define o texto que aparece dentro do campo de input
           placeholder="filme"
           // ----------------------------------------------------
           // Propriedades voltada ao cadastro:
-          // Função que será chamada ao enviar o formulário (onSubmit) 
-          funcCadastro={editar ? editarFilme : cadastrarFilme} 
-          //Valor atual do campo de texto 
+
+          //Função que será chamada ao enviar o formulário (onSubmit)
+          funcCadastro={editar ? editarFilme : cadastrarFilme}
+          //Valor atual do campo de texto
           valor={valor}
-          //Função que atualiza o estado do valor no componente pai sempre que o usuário digita no campo 
-          setValor={setValor} 
-          btnEditar={editar} 
-          cancelarEdicao={limparFormulario} 
+          //Função que atualiza o estado do valor no componente pai sempre que o usuário digita no campo
+          setValor={setValor}
+          btnEditar={editar}
+          cancelarEdicao={limparFormulario}
           listaGeneros={listaGeneros}
+          setValorGenero={setValorGenero}
+          setImagem={setImagem}
         />
-        
-         <Lista nomeLista="Lista de Filmes"
-         visibilidade="none" 
-         //Chama o método para validar: 
-         lista={listaFilmes} 
-         //Identifica o tipo de lista
-         tipoLista="filme" 
-         funcExcluir={excluirFilme} 
-         funcEditar={preEditar} 
-         />
+
+        {/* Lista de Gêneros */}
+        <Lista
+          tituloLista="Lista de Filmes"
+          // visibilidade="none"
+          //Chama o método para validar:
+          lista={listaFilmes}
+          //Identifica o tipo de lista:
+          tipoLista="filme"
+          funcExcluir={excluirFilme}
+          funcEditar={preEditar}
+        />
       </main>
+      <p>Filme - {valor}</p>
+      <p>gênero - {valorGenero}</p>
+      <p>imagem - {imagem?.name}</p>
+
       <Footer />
     </>
   );
 };
 
 export default CadastroFilme;
-
-

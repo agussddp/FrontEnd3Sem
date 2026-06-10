@@ -1,16 +1,16 @@
 {
   "Genero": [
     {
-      "nome": "Romance",
-      "id": "uyPBDfK4wcs"
+      "nome": "Eduardo",
+      "id": "8zE7tUOt5gU"
     },
     {
-      "nome": "Mistério",
-      "id": "vqucXDLTgKI"
+      "nome": "Comédia",
+      "id": "fBpIkW51d5A"
     },
     {
-      "nome": "Drama",
-      "id": "1vr68gd_SsU"
+      "nome": "edu",
+      "id": "TFJ0Py7W_kk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
