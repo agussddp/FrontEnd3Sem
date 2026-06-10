@@ -5,6 +5,7 @@ const Perfil = () => {
     // state global (UsaurioContext)
     const {usuario, setUsuario} = useContext(UsuarioContext)
     //state local
+    // novoUsuario = email
     const [novoUsuario, setNovoUsuario] = useState("")
 
     const login = (dadosUsuario) => {

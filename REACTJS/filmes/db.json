@@ -1,12 +1,16 @@
 {
   "Genero": [
     {
-      "nome": "Terror",
-      "id": "-Dc85r_WZCc"
+      "nome": "Romance",
+      "id": "uyPBDfK4wcs"
     },
     {
-      "nome": "Comédia",
-      "id": "1iIJpadEy1k"
+      "nome": "Mistério",
+      "id": "vqucXDLTgKI"
+    },
+    {
+      "nome": "Drama",
+      "id": "1vr68gd_SsU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

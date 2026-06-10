@@ -2,10 +2,10 @@
 import axios from "axios";
 
 // Define a porta onde a API local está rodando
-const apiPort = "3000";
-// http://localhost:3000/Genero
+const apiPort = "7192";
+
 // Monta a URL base para a API local, usando a porta definida
-const localApi = `http://localhost:${apiPort}`;
+const localApi = `https://localhost:${apiPort}`;
 
 // Define uma variável para uma API externa, mas no momento ela está como 'null' (não sendo usada)
 const externalApi = null;

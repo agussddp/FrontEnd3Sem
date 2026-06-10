@@ -22,7 +22,7 @@ const Header = () => {
             <span>( {usuario} )</span>
             <button
                 onClick={()=>{
-                    setUsuario(null)
+                    logout()
                 }}
             >Sair</button>
         </nav>

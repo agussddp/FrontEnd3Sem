@@ -1,12 +1,12 @@
-import "./CadastroGenero.css";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Cadastro from "../../components/cadastro/Cadastro";
-import Lista from "../../components/lista/Lista";
-import { useEffect, useState } from "react";
-import api from "../../Services/services";
-import Swal from "sweetalert2";
-import { Alerta } from "../../components/alerta/Alerta";
+import './CadastroGenero.css'
+import Header from "../../components/header/Header"
+import Footer from '../../components/footer/Footer'
+import Cadastro from '../../components/cadastro/Cadastro'
+import { useEffect, useState } from 'react'
+import Lista from "../../components/lista/Lista"
+import api from "../../services/services"
+import Swal from 'sweetalert2'
+import Alerta from '../../components/alerta/Alerta'
 
 const CadastroGenero = () => {
   // variáveis e states
